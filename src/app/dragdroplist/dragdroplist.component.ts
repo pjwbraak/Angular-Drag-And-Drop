@@ -10,11 +10,20 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['dragdroplist.component.css'],
 })
 export class DragDropListComponent {
-  todo = [
+
+  taken = [
     'Get to work',
     'Pick up groceries',
     'Go home',
     'Fall asleep'
+  ];
+
+  doing = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
   ];
 
   done = [

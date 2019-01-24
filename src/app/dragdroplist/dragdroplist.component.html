@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row" cdkDropListGroup>
       <div class="example-container col-lg-4">
-        <h2 class="col-h2">Taken</h2>
-    
-        <div
+        <h2 class="col-h2">Taken 
+          <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+        </h2>
+
+        <div 
           cdkDropList
           [cdkDropListData]="taken"
-          class="example-list"
+          class="example-list slideable"
           (cdkDropListDropped)="drop($event)">
           <div class="example-box" *ngFor="let item of taken" cdkDrag>
               {{ item }}
@@ -15,12 +17,14 @@
       </div>
 
       <div class="example-container col-lg-4">
-        <h2 class="col-h2">Doing</h2>
+        <h2 class="col-h2">Doing
+          <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+        </h2>
     
         <div
           cdkDropList
           [cdkDropListData]="doing"
-          class="example-list"
+          class="example-list slideable"
           (cdkDropListDropped)="drop($event)">
           <div class="example-box" *ngFor="let item of doing" cdkDrag>
               {{ item }}
@@ -29,12 +33,14 @@
       </div>
 
       <div class="example-container col-lg-4">
-        <h2 class="col-h2">Done</h2>
+        <h2 class="col-h2">Done
+          <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+        </h2>
     
         <div
           cdkDropList
           [cdkDropListData]="done"
-          class="example-list"
+          class="example-list slideable"
           (cdkDropListDropped)="drop($event)">
           <div class="example-box" *ngFor="let item of done" cdkDrag>
               {{ item }}

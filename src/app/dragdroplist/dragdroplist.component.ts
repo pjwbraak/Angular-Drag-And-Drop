@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import * as $ from 'jquery';
 
 /**
  * @title Drag&Drop connected sorting group
@@ -34,6 +35,10 @@ export class DragDropListComponent {
     'Walk dog'
   ];
 
+  slideSpeed = 400;
+  dropdownIconClickable = true;
+  countingdown = false;
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -44,4 +49,28 @@ export class DragDropListComponent {
                         event.currentIndex);
     }
   }
+
+  slideToggle(event) {
+    if (this.dropdownIconClickable) {
+      console.log(this.countingdown);
+        if (this.countingdown === false) {
+          // this.startCountdown();
+          const element = $(event.target);
+          element.parent().next('.slideable').slideToggle(this.slideSpeed);
+          element.toggleClass('reverse');
+        } else {
+          return;
+        }
+      }
+  }
+
+//   startCountdown() {
+//     this.countingdown = true;
+//     console.log(DragDropListComponent);
+//     setTimeout(function() {
+//       console.log('in timeout timer');
+//       this.countingdown = false;
+//       console.log(this.countingdown);
+//     }, this.slideSpeed);
+//   }
 }

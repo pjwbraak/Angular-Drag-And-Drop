@@ -2,7 +2,8 @@
   <div class="row" cdkDropListGroup>
       <div class="example-container col-lg-4">
         <h2 class="col-h2">Taken 
-          <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+          <i class="fa fa-caret-up dropdown-icon float-right" (click)="slideToggle($event)"></i>
+          <span class="float-right itemListLength">{{ taken.length }}</span>
         </h2>
 
         <div 
@@ -17,8 +18,9 @@
       </div>
 
       <div class="example-container col-lg-4">
-        <h2 class="col-h2">Doing
+        <h2 class="col-h2">Doing 
           <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+          <span class="float-right itemListLength">{{ doing.length }}</span>
         </h2>
     
         <div
@@ -33,8 +35,9 @@
       </div>
 
       <div class="example-container col-lg-4">
-        <h2 class="col-h2">Done
+        <h2 class="col-h2">Done 
           <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+          <span class="float-right itemListLength">{{ done.length }}</span>
         </h2>
     
         <div

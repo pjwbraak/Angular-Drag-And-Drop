@@ -77,3 +77,7 @@
   transform: rotateX(0deg);
   /* transition-duration: 0ms; */
 }
+
+.itemListLength {
+  margin-right: .5em;
+}

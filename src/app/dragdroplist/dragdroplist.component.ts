@@ -35,9 +35,7 @@ export class DragDropListComponent {
     'Walk dog'
   ];
 
-  slideSpeed = 400;
-  dropdownIconClickable = true;
-  countingdown = false;
+  slideSpeed = 0;
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -51,26 +49,8 @@ export class DragDropListComponent {
   }
 
   slideToggle(event) {
-    if (this.dropdownIconClickable) {
-      console.log(this.countingdown);
-        if (this.countingdown === false) {
-          // this.startCountdown();
-          const element = $(event.target);
-          element.parent().next('.slideable').slideToggle(this.slideSpeed);
-          element.toggleClass('reverse');
-        } else {
-          return;
-        }
-      }
-  }
-
-//   startCountdown() {
-//     this.countingdown = true;
-//     console.log(DragDropListComponent);
-//     setTimeout(function() {
-//       console.log('in timeout timer');
-//       this.countingdown = false;
-//       console.log(this.countingdown);
-//     }, this.slideSpeed);
-//   }
+    const element = $(event.target);
+        element.parent().next('.slideable').slideToggle(this.slideSpeed);
+        element.toggleClass('reverse');
+    }
 }

@@ -80,7 +80,12 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .dropdown-icon {
+  .dropdown-icon.small-screen {
     display: none;
   }
-} 
+}
+
+/* make subitems appear under item */
+.dragdrop-item-wrapper {
+  float: left;
+}

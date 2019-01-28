@@ -13,10 +13,10 @@ import * as $ from 'jquery';
 export class DragDropListComponent {
 
   taken = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
+    {title: 'Get to work', subitems: [ 'subitem 1', 'subitem 2']},
+    {title: 'Get to work2', subitems: [ 'subitem 2', 'subitem 2']},
+    {title: 'Get to work3', subitems: [ 'subitem 3', 'subitem 2']},
+    {title: 'Get to work4', subitems: [ 'subitem 4', 'subitem 2']}
   ];
 
   doing = [

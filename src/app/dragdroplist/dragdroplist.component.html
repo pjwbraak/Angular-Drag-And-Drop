@@ -28,7 +28,7 @@
 
       <div class="dragdrop-container col-lg-4">
         <h2 class="col-h2">Doing 
-          <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+          <i class="fa fa-caret-up dropdown-icon small-screen float-right" (click)="slideToggle($event)"></i>
           <span class="float-right">{{ doing.length }}</span>
         </h2>
     
@@ -38,14 +38,23 @@
           class="dragdrop-list slideable"
           (cdkDropListDropped)="drop($event)">
           <div class="dragdrop-box" *ngFor="let item of doing" cdkDrag>
-              {{ item }}
+            <div class="dragdrop-item-wrapper">
+              <div class="dragdrop-item">{{ item.title }}
+                <i class="fa fa-caret-down dropdown-icon" (click)="slideToggle($event)" *ngIf="item.subitems.length > 0"></i>
+              </div>
+              <div class="slideable start-closed hidden">
+                <ul class="list-group list-group-flush">
+                  <li class="dragdrop-subitem list-group-item" *ngFor="let subitem of item.subitems" >{{ subitem }}</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="dragdrop-container col-lg-4">
         <h2 class="col-h2">Done 
-          <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+          <i class="fa fa-caret-up dropdown-icon small-screen float-right" (click)="slideToggle($event)"></i>
           <span class="float-right">{{ done.length }}</span>
         </h2>
     
@@ -55,7 +64,16 @@
           class="dragdrop-list slideable"
           (cdkDropListDropped)="drop($event)">
           <div class="dragdrop-box" *ngFor="let item of done" cdkDrag>
-              {{ item }}
+            <div class="dragdrop-item-wrapper">
+              <div class="dragdrop-item">{{ item.title }}
+                <i class="fa fa-caret-down dropdown-icon" (click)="slideToggle($event)" *ngIf="item.subitems.length > 0"></i>
+              </div>
+              <div class="slideable start-closed hidden">
+                <ul class="list-group list-group-flush">
+                  <li class="dragdrop-subitem list-group-item" *ngFor="let subitem of item.subitems" >{{ subitem }}</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

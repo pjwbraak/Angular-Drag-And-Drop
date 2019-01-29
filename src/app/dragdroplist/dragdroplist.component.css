@@ -75,8 +75,8 @@
   -ms-transform: rotateX(0deg); /* IE 9 */
   -webkit-transform: rotateX(0deg); /* Safari 3-8 */
   transform: rotateX(0deg);
-  transition-duration: 400ms;
   margin-left: .5em;
+  transition-duration: 400ms;
 }
 
 @media only screen and (min-width: 992px) {

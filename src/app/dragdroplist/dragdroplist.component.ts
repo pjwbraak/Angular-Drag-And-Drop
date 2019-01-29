@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import * as $ from 'jquery';
 
@@ -11,9 +11,11 @@ import * as $ from 'jquery';
   styleUrls: ['dragdroplist.component.css'],
 })
 
-export class DragDropListComponent implements OnInit, AfterViewInit {
+export class DragDropListComponent implements AfterViewInit {
 
-  constructor() {}
+  private static _clickable = true;
+
+  slideSpeed = 400;
 
   taken = [
     {title: 'Main item description', subitems: [ 'subitem 1', 'subitem 2', 'subitem 3', 'subitem 4']},
@@ -38,7 +40,9 @@ export class DragDropListComponent implements OnInit, AfterViewInit {
     'Walk dog'
   ];
 
-  slideSpeed = 0;
+  ngAfterViewInit(): void {
+    $('.start-closed').slideUp(0);
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -52,16 +56,19 @@ export class DragDropListComponent implements OnInit, AfterViewInit {
   }
 
   slideToggle(event) {
-    const element = $(event.target);
-    element.parent().next('.slideable').slideToggle(this.slideSpeed).toggleClass('hidden');
-    element.toggleClass('reverse');
+    if (DragDropListComponent._clickable) {
+      DragDropListComponent._clickable = false;
+      const element = $(event.target);
+      element.parent().next('.slideable').slideToggle(this.slideSpeed).toggleClass('hidden');
+      element.toggleClass('reverse');
+      this.clickableCounter();
+    }
   }
 
-  ngOnInit(): void {
-
+  clickableCounter() {
+    setTimeout(function() {
+      DragDropListComponent._clickable = true;
+    }, this.slideSpeed);
   }
 
-  ngAfterViewInit(): void {
-    $('.start-closed').slideUp(0);
-  }
 }

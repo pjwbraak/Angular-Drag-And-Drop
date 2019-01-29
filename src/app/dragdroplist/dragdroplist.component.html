@@ -14,10 +14,12 @@
           <div class="dragdrop-box" *ngFor="let item of taken" cdkDrag>
             <div class="dragdrop-item-wrapper">
               <div class="dragdrop-item">{{ item.title }}
-                <i class="fa fa-caret-up dropdown-icon" (click)="slideToggle($event)"></i>
+                <i class="fa fa-caret-down dropdown-icon" (click)="slideToggle($event)" *ngIf="item.subitems.length > 0"></i>
               </div>
-              <div class="slideable">
-                <div class="dragdrop-subitem" *ngFor="let subitem of item.subitems" >{{ subitem }}</div>
+              <div class="slideable start-closed hidden">
+                <ul class="list-group list-group-flush">
+                  <li class="dragdrop-subitem list-group-item" *ngFor="let subitem of item.subitems" >{{ subitem }}</li>
+                </ul>
               </div>
             </div>
           </div>

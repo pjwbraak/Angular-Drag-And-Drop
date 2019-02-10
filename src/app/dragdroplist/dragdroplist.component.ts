@@ -42,7 +42,7 @@ export class DragDropListComponent implements AfterViewInit {
     $('.start-closed').slideUp(0);
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  private drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -53,7 +53,7 @@ export class DragDropListComponent implements AfterViewInit {
     }
   }
 
-  slideToggle(event) {
+  private slideToggle(event) {
     if (DragDropListComponent._clickable) {
       DragDropListComponent._clickable = false;
       const element = $(event.target);
@@ -63,7 +63,7 @@ export class DragDropListComponent implements AfterViewInit {
     }
   }
 
-  clickableCounter() {
+  private clickableCounter() {
     setTimeout(function() {
       DragDropListComponent._clickable = true;
     }, this._slideSpeed);

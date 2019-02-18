@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 
 export class DragDropListComponent implements AfterViewInit {
 
-  private static _clickable = true;
+  private _clickable = true;
 
   private _slideSpeed = 400;
 
@@ -54,8 +54,9 @@ export class DragDropListComponent implements AfterViewInit {
   }
 
   private slideToggle(event) {
-    if (DragDropListComponent._clickable) {
-      DragDropListComponent._clickable = false;
+    const those = this;
+    if (those._clickable) {
+      those._clickable = false;
       const element = $(event.target);
       element.parent().next('.slideable').slideToggle(this._slideSpeed).toggleClass('hidden');
       element.toggleClass('reverse');
@@ -64,8 +65,9 @@ export class DragDropListComponent implements AfterViewInit {
   }
 
   private clickableCounter() {
+    const those = this;
     setTimeout(function() {
-      DragDropListComponent._clickable = true;
+      those._clickable = true;
     }, this._slideSpeed);
   }
 
